@@ -9,6 +9,11 @@
 % And to obtain the best precision possible, we stop
 % the algorithm when x.k+1 = x.k, or deltaX.k < epsilonMachine.
 function root = radn(x, n)
+    if ((x == 0) || (x == 1))
+        root = x;
+        return;
+    end
+
     % guessing initial value
     root = 100;
     
