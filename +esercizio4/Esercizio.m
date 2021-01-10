@@ -6,13 +6,13 @@ classdef Esercizio
     
     methods
         function this = Esercizio(x, n)
+            checkInputs(x, n)   
+            
             this.x = x;
             this.n = n;
         end
         
         function root = radn(this)
-            this.checkInputs();
-            
             if (this.isTrivialResult())
                 root = this.x;
                 return;
@@ -22,19 +22,6 @@ classdef Esercizio
     end
     
     methods(Access = private)
-        function checkInputs(this)
-            this.checkXInput();
-            this.checkNInput();
-        end
-        
-        function checkXInput(this)
-            checkAnInput(this.x, 'X');
-        end
-        
-        function checkNInput(this)
-            checkAnInput(this.n, 'N');
-        end
-        
         function isTrivial = isTrivialResult(this)
             isTrivial = false;
             if ((this.x == 0) || (this.x == 1) || (this.n == 1))
