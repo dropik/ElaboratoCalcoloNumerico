@@ -16,6 +16,22 @@ classdef Esercizio4Tests < matlab.unittest.TestCase
             result = esercizio4.radn(input(1), input(2));
             testCase.assertThat(result, IsEqualTo(expectedValue, 'Within', testCase.tolerance));
         end
+        
+        function testNegativeX(testCase)
+            testCase.assertError(@() esercizio4.radn(-1, 2), 'radn:XMustBeNonNegative');
+        end
+        
+        function testNegativeN(testCase)
+            testCase.assertError(@() esercizio4.radn(2, -1), 'radn:NMustBeNonNegative');
+        end
+        
+        function testNonNumericX(testCase)
+            testCase.assertError(@() esercizio4.radn('1', 2), 'radn:XMustBeNumeric');
+        end
+        
+        function testNonNumericN(testCase)
+            testCase.assertError(@() esercizio4.radn(1, '2'), 'radn:NMustBeNumeric');
+        end
     end
 end
 
