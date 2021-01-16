@@ -24,3 +24,4 @@
 *.mn            binary
 *.png filter=lfs diff=lfs merge=lfs -text
 *.PNG filter=lfs diff=lfs merge=lfs -text
+*.pdf filter=lfs diff=lfs merge=lfs -text
