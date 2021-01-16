@@ -1,7 +1,6 @@
 classdef Esercizio
     properties
-        x
-        n
+        x, n;
     end
     
     methods
