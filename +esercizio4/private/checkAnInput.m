@@ -1,4 +1,4 @@
 function checkAnInput(input, inputPrefix)
     checks.checkNumericInput(input, inputPrefix);
-    checkNonNegativeInput(input, inputPrefix);
+    checks.checkNonNegativeInput(input, inputPrefix);
 end

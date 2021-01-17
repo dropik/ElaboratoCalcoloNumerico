@@ -1,4 +1,4 @@
-classdef NewtonRootEnumerator < handle
+classdef AitkenRootEnumerator < handle
     properties (Access = private)
         f;
         g;
@@ -7,6 +7,7 @@ classdef NewtonRootEnumerator < handle
         maxit;
 
         next;
+        X;
     end
 
     properties (Access = protected)
@@ -18,7 +19,7 @@ classdef NewtonRootEnumerator < handle
     end
 
     methods
-        function this = NewtonRootEnumerator(f, g, x0, tolerance, maxit)
+        function this = AitkenRootEnumerator(f, g, x0, tolerance, maxit)
             this.f = f;
             this.g = g;
             this.x0 = x0;
@@ -27,17 +28,22 @@ classdef NewtonRootEnumerator < handle
         end
 
         function reset(this)
+            this.X = zeros(1, 3);
+            this.X(3) = this.x0;
+            this.calculateX1X2();
+
             this.current = realmax;
-            this.next = this.x0;
+            this.next = this.X(1);
             this.i = 0;
         end
 
         function moveNext(this)
-            this.current = this.next;
+            this.current = this.X(2);
             
-            fCurrent = feval(this.f, this.current);
-            gCurrent = feval(this.g, this.current);
-            this.next = this.calculateNext(fCurrent, gCurrent);
+            this.next = this.calculateNext();
+            this.X(3) = this.next;
+            this.calculateX1X2();
+            this.next = this.X(1);
 
             this.i = this.i + 1;
         end
@@ -52,12 +58,18 @@ classdef NewtonRootEnumerator < handle
     end
 
     methods (Access = protected)
-        function next = calculateNext(this, fCurrent, gCurrent)
-            next = this.current - fCurrent / gCurrent;
+        function next = calculateNext(this)
+            next = (this.X(2)^2 - this.X(3)*this.X(1)) / ...
+                    (2*this.X(2) - this.X(1) - this.X(3));
         end
     end
 
     methods (Access = private)
+        function calculateX1X2(this)
+            this.X(2) = this.X(3) - feval(this.f, this.X(3)) / feval(this.g, this.X(3));
+            this.X(1) = this.X(2) - feval(this.f, this.X(2)) / feval(this.g, this.X(2));
+        end
+
         function [reached] = notReachedIterationsLimit(this)
             reached = this.i < this.maxit;
         end
