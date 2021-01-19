@@ -7,11 +7,11 @@ function [LU, p] = palu(A)
     % check if A matrix is actually square.
     [m,n] = size(A);
     if m ~= n
-        error('Not a square matrix');
+        error('inputs:AMustBeSquare', 'Not a square matrix');
     end
 
     LU = A;
-    p = [1:n]';
+    p = linspace(1, n, n)';
 
     % executing Gaussian elimination
     for i = 1:n-1
@@ -20,7 +20,7 @@ function [LU, p] = palu(A)
         
         % check if matrix is singular.
         if maxValue == 0
-            error('Singular matrix')
+            error('inputs:AMustBeNonSingular', 'Singular matrix')
         end
 
         % converting max value index to LU matrix scope
