@@ -18,8 +18,8 @@ classdef CordRootEnumeratorTests < tests.esercizio5.WithMaxitRootEnumeratorTests
     end
 
     methods (Access = protected)
-        function enumerator = createEnumerator(testCase, input, maxit)
-            enumerator = esercizio5.CordRootEnumerator(testCase.f, testCase.g, input, 1e-3, maxit);
+        function enumerator = createEnumerator(this, input, maxit)
+            enumerator = esercizio5.CordRootEnumerator(this.f, this.g, input, 1e-3, maxit);
         end
     end
 end

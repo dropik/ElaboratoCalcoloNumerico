@@ -15,28 +15,28 @@ classdef PaluTests < matlab.unittest.TestCase
     end
 
     methods (Test)
-        function testPalu(testCase)
+        function testPalu(this)
             import matlab.unittest.constraints.IsEqualTo;
 
             % Act
-            [lu, p] = esercizio8.palu(testCase.a);
+            [lu, p] = esercizio8.palu(this.a);
             % Assert
-            testCase.assertThat(lu, IsEqualTo(testCase.expectedLU, 'Within', testCase.assertTolerance));
-            testCase.assertThat(p, IsEqualTo(testCase.expectedP));
+            this.assertThat(lu, IsEqualTo(this.expectedLU, 'Within', this.assertTolerance));
+            this.assertThat(p, IsEqualTo(this.expectedP));
         end
 
-        function testPaluOnNotSquareMatrix(testCase)
+        function testPaluOnNotSquareMatrix(this)
             % Arrange
             nonSquareA = [ 1, 2, 3; 4, 5, 6 ];
             % Assert
-            testCase.assertError(@() esercizio8.palu(nonSquareA), 'inputs:AMustBeSquare');
+            this.assertError(@() esercizio8.palu(nonSquareA), 'inputs:AMustBeSquare');
         end
 
-        function testPaluOnSingularMatrix(testCase)
+        function testPaluOnSingularMatrix(this)
             % Arrange
             singularA = [ 0, 1, 2; 0, 3, 4; 0, 5, 6 ];
             % Assert
-            testCase.assertError(@() esercizio8.palu(singularA), 'inputs:AMustBeNonSingular');
+            this.assertError(@() esercizio8.palu(singularA), 'inputs:AMustBeNonSingular');
         end
     end
 end

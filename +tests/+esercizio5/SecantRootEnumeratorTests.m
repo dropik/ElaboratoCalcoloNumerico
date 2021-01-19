@@ -17,8 +17,8 @@ classdef SecantRootEnumeratorTests < tests.esercizio5.WithMaxitRootEnumeratorTes
     end
 
     methods (Access = protected)
-        function enumerator = createEnumerator(testCase, input, maxit)
-            enumerator = esercizio5.SecantRootEnumerator(testCase.f, input(1), input(2), 1e-3, maxit);
+        function enumerator = createEnumerator(this, input, maxit)
+            enumerator = esercizio5.SecantRootEnumerator(this.f, input(1), input(2), 1e-3, maxit);
         end
     end
 end

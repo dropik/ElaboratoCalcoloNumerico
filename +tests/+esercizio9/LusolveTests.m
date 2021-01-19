@@ -12,20 +12,20 @@ classdef LusolveTests < matlab.unittest.TestCase
     end
 
     methods (Test)
-        function testLusolve(testCase)
+        function testLusolve(this)
             import matlab.unittest.constraints.IsEqualTo;
 
             % Act
-            x = esercizio9.lusolve(testCase.lu, testCase.p, testCase.b);
+            x = esercizio9.lusolve(this.lu, this.p, this.b);
             % Assert
-            testCase.assertThat(x, IsEqualTo(testCase.expectedX, 'Within', testCase.assertTolerance));
+            this.assertThat(x, IsEqualTo(this.expectedX, 'Within', this.assertTolerance));
         end
 
-        function testLusolveOnNonSquareLU(testCase)
+        function testLusolveOnNonSquareLU(this)
             % Arrange
             nonSquareLU = [1, 2, 3; 4, 5, 6 ];
             % Assert
-            testCase.assertError(@() esercizio9.lusolve(nonSquareLU, testCase.p, testCase.b), ...
+            this.assertError(@() esercizio9.lusolve(nonSquareLU, this.p, this.b), ...
                                 'inputs:LUMustBeSquare');
         end
     end

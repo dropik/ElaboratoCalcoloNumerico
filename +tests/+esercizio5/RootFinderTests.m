@@ -16,7 +16,7 @@ classdef RootFinderTests < matlab.mock.TestCase
     end
 
     methods (Test)
-        function testEnumeratorDoesNotHaveNext(testCase)
+        function testEnumeratorDoesNotHaveNext(this)
             import matlab.mock.constraints.WasCalled
             import matlab.mock.constraints.WasAccessed
             import matlab.unittest.constraints.IsEqualTo
@@ -25,51 +25,47 @@ classdef RootFinderTests < matlab.mock.TestCase
             % Arrange
             TEST_ROOT = 1;
             ITERATIONS = 1;
-            when(withExactInputs(testCase.enumeratorBehaviour.hasNext), AssignOutputs(false));
-            when(withExactInputs(testCase.enumeratorBehaviour.getCurrent), AssignOutputs(TEST_ROOT));
-            when(get(testCase.enumeratorBehaviour.i), AssignOutputs(ITERATIONS));
+            when(withExactInputs(this.enumeratorBehaviour.hasNext), AssignOutputs(false));
+            when(withExactInputs(this.enumeratorBehaviour.getCurrent), AssignOutputs(TEST_ROOT));
+            when(get(this.enumeratorBehaviour.i), AssignOutputs(ITERATIONS));
 
             % Act
-            [root, iterations] = testCase.rootFinder.find();
+            [root, iterations] = this.rootFinder.find();
 
             % Assert
-            testCase.assertThat(root, IsEqualTo(TEST_ROOT));
-            testCase.assertThat(iterations, IsEqualTo(ITERATIONS));
-            testCase.assertThat(withExactInputs(testCase.enumeratorBehaviour.hasNext), WasCalled('WithCount', 1));
-            testCase.assertThat(withExactInputs(testCase.enumeratorBehaviour.moveNext), ~WasCalled);
-            testCase.assertThat(withExactInputs(testCase.enumeratorBehaviour.getCurrent), WasCalled('WithCount', 1));
-            testCase.assertThat(testCase.enumeratorBehaviour.i, WasAccessed('WithCount', 1));
+            this.assertThat(root, IsEqualTo(TEST_ROOT));
+            this.assertThat(iterations, IsEqualTo(ITERATIONS));
+            this.assertThat(withExactInputs(this.enumeratorBehaviour.hasNext), WasCalled('WithCount', 1));
+            this.assertThat(withExactInputs(this.enumeratorBehaviour.moveNext), ~WasCalled);
+            this.assertThat(withExactInputs(this.enumeratorBehaviour.getCurrent), WasCalled('WithCount', 1));
+            this.assertThat(this.enumeratorBehaviour.i, WasAccessed('WithCount', 1));
         end
 
-        function testEnumeratorHasNext(testCase)
+        function testEnumeratorHasNext(this)
             import matlab.mock.constraints.WasCalled
             import matlab.unittest.constraints.IsEqualTo
             import matlab.mock.actions.AssignOutputs
 
             % Arrange
-            when(withExactInputs(testCase.enumeratorBehaviour.hasNext), ...
+            when(withExactInputs(this.enumeratorBehaviour.hasNext), ...
                 AssignOutputs(true).then(AssignOutputs(true)).then(AssignOutputs(false)));
-
             % Act
-            testCase.rootFinder.find();
-
+            this.rootFinder.find();
             % Assert
-            testCase.assertThat(withExactInputs(testCase.enumeratorBehaviour.hasNext), WasCalled('WithCount', 3));
-            testCase.assertThat(withExactInputs(testCase.enumeratorBehaviour.moveNext), WasCalled('WithCount', 2));
+            this.assertThat(withExactInputs(this.enumeratorBehaviour.hasNext), WasCalled('WithCount', 3));
+            this.assertThat(withExactInputs(this.enumeratorBehaviour.moveNext), WasCalled('WithCount', 2));
         end
 
-        function testEnumeratorWasReset(testCase)
+        function testEnumeratorWasReset(this)
             import matlab.mock.constraints.WasCalled
             import matlab.mock.actions.AssignOutputs
 
             % Arrange
-            when(withExactInputs(testCase.enumeratorBehaviour.hasNext), AssignOutputs(false));
-
+            when(withExactInputs(this.enumeratorBehaviour.hasNext), AssignOutputs(false));
             % Act
-            testCase.rootFinder.find();
-
+            this.rootFinder.find();
             % Assert
-            testCase.assertThat(withExactInputs(testCase.enumeratorBehaviour.reset), WasCalled('WithCount', 1));
+            this.assertThat(withExactInputs(this.enumeratorBehaviour.reset), WasCalled('WithCount', 1));
         end
     end
 end

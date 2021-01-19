@@ -15,24 +15,24 @@ classdef(Abstract) BaseTestCase < matlab.unittest.TestCase
     end
 
     methods(TestMethodSetup)
-        function setUp(testCase)
-            testCase.assertTolerance = matlab.unittest.constraints.AbsoluteTolerance(testCase.assertToleranceAmount);
+        function setUp(this)
+            this.assertTolerance = matlab.unittest.constraints.AbsoluteTolerance(this.assertToleranceAmount);
         end
     end
 
     methods(Test, ParameterCombination = 'sequential')
-        function testRootFind(testCase, input, expectedRoot)
+        function testRootFind(this, input, expectedRoot)
             import matlab.unittest.constraints.IsEqualTo
             import matlab.unittest.constraints.IsGreaterThan
 
             % Act
-            result = testCase.findRoot(input);
+            result = this.findRoot(input);
             % Assert
-            testCase.assertThat(result, IsEqualTo(expectedRoot, 'Within', testCase.assertTolerance));
+            this.assertThat(result, IsEqualTo(expectedRoot, 'Within', this.assertTolerance));
         end
     end
 
     methods(Abstract, Access = protected)
-        findRoot(testCase, input)
+        findRoot(this, input)
     end
 end

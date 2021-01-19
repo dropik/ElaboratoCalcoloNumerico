@@ -13,7 +13,7 @@ classdef EsercizioTests < matlab.unittest.TestCase
     end
 
     methods(Test, ParameterCombination = 'sequential')
-        function testRadn(testCase, input, expectedValue)
+        function testRadn(this, input, expectedValue)
             import matlab.unittest.constraints.IsEqualTo;
             import esercizio4.Esercizio;
 
@@ -22,23 +22,23 @@ classdef EsercizioTests < matlab.unittest.TestCase
             % Act
             result = esercizio.radn();
             % Assert
-            testCase.assertThat(result, IsEqualTo(expectedValue, 'Within', testCase.tolerance));
+            this.assertThat(result, IsEqualTo(expectedValue, 'Within', this.tolerance));
         end
         
-        function testNonNumericX(testCase)
-            testCase.assertError(@() esercizio4.Esercizio('1', 2), 'inputs:XMustBeNumeric');
+        function testNonNumericX(this)
+            this.assertError(@() esercizio4.Esercizio('1', 2), 'inputs:XMustBeNumeric');
         end
 
-        function testNegativeX(testCase)
-            testCase.assertError(@() esercizio4.Esercizio(-1, 2), 'inputs:XMustBeNonNegative');
+        function testNegativeX(this)
+            this.assertError(@() esercizio4.Esercizio(-1, 2), 'inputs:XMustBeNonNegative');
         end
         
-        function testNonNumericN(testCase)
-            testCase.assertError(@() esercizio4.Esercizio(1, '2'), 'inputs:NMustBeNumeric');
+        function testNonNumericN(this)
+            this.assertError(@() esercizio4.Esercizio(1, '2'), 'inputs:NMustBeNumeric');
         end
 
-        function testNegativeN(testCase)
-            testCase.assertError(@() esercizio4.Esercizio(2, -1), 'inputs:NMustBeNonNegative');
+        function testNegativeN(this)
+            this.assertError(@() esercizio4.Esercizio(2, -1), 'inputs:NMustBeNonNegative');
         end
     end
 end

@@ -18,8 +18,8 @@ classdef ModifiedNewtonRootEnumeratorTests < tests.esercizio5.WithMaxitRootEnume
     end
 
     methods (Access = protected)
-        function enumerator = createEnumerator(testCase, input, maxit)
-            enumerator = esercizio7.ModifiedNewtonRootEnumerator(testCase.f, testCase.g, input, 3, 1e-3, maxit);
+        function enumerator = createEnumerator(this, input, maxit)
+            enumerator = esercizio7.ModifiedNewtonRootEnumerator(this.f, this.g, input, 3, 1e-3, maxit);
         end
     end
 end

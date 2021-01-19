@@ -18,8 +18,8 @@ classdef AitkenRootEnumeratorTests < tests.esercizio5.WithMaxitRootEnumeratorTes
     end
 
     methods (Access = protected)
-        function enumerator = createEnumerator(testCase, input, maxit)
-            enumerator = esercizio7.AitkenRootEnumerator(testCase.f, testCase.g, input, 1e-3, maxit);
+        function enumerator = createEnumerator(this, input, maxit)
+            enumerator = esercizio7.AitkenRootEnumerator(this.f, this.g, input, 1e-3, maxit);
         end
     end
 end

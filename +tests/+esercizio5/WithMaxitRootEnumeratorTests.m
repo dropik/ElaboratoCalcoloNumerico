@@ -6,46 +6,46 @@ classdef (Abstract) WithMaxitRootEnumeratorTests < tests.esercizio5.BaseRootEnum
     end
     
     methods (Access = protected, Abstract)
-        createEnumerator(testCase, input, maxit);
+        createEnumerator(this, input, maxit);
     end
 
     methods (Access = protected)
-        function enumerator = arrangeEnumerator(testCase, input)
-            enumerator = testCase.arrangeEnumeratorWithMaxit(input, 10);
+        function enumerator = arrangeEnumerator(this, input)
+            enumerator = this.arrangeEnumeratorWithMaxit(input, 10);
         end
 
-        function enumerator = arrangeEnumeratorWithMaxit(testCase, input, maxit)
-            enumerator = testCase.createEnumerator(input, maxit);
+        function enumerator = arrangeEnumeratorWithMaxit(this, input, maxit)
+            enumerator = this.createEnumerator(input, maxit);
             enumerator.reset();
         end
     end
 
     methods (Test)
-        function testHasNextOnMaxitAndStopCriteria(testCase)
+        function testHasNextOnMaxitAndStopCriteria(this)
             % Arrange
-            enumerator = testCase.arrangeEnumerator(testCase.regularInput);
+            enumerator = this.arrangeEnumerator(this.regularInput);
             % Assert
-            testCase.assertTrue(enumerator.hasNext);
+            this.assertTrue(enumerator.hasNext);
         end
 
-        function testHasNextOnLowMaxitAndOkStopCriteria(testCase)
+        function testHasNextOnLowMaxitAndOkStopCriteria(this)
             % Arrange
-            enumerator = testCase.arrangeEnumeratorWithMaxit(testCase.regularInput, 1);
+            enumerator = this.arrangeEnumeratorWithMaxit(this.regularInput, 1);
             % Act
             enumerator.moveNext();
             % Assert
-            testCase.assertFalse(enumerator.hasNext);
+            this.assertFalse(enumerator.hasNext);
         end
 
-        function testHasNextOnOkayMaxitAndLowStopCriteria(testCase)
+        function testHasNextOnOkayMaxitAndLowStopCriteria(this)
             % Arrange
-            enumerator = testCase.arrangeEnumerator(testCase.almostRootInput);
+            enumerator = this.arrangeEnumerator(this.almostRootInput);
             % Act
-            if (testCase.requireIterationForStopCriteria)
+            if (this.requireIterationForStopCriteria)
                 enumerator.moveNext();
             end
             % Assert
-            testCase.assertFalse(enumerator.hasNext);
+            this.assertFalse(enumerator.hasNext);
         end
     end
 end

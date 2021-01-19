@@ -4,19 +4,19 @@ classdef(Abstract)  WithMaxitTestCase < tests.esercizio5.BaseTestCase
     end
 
     methods(Test, ParameterCombination = 'sequential')
-        function testFindRootWithoudMaxit(testCase, input, expectedRoot)
+        function testFindRootWithoudMaxit(this, input, expectedRoot)
             import matlab.unittest.constraints.IsEqualTo
             import matlab.unittest.constraints.IsGreaterThan
 
             % Act
-            [result, iterations] = testCase.findRootWithoutMaxit(input);
+            [result, iterations] = this.findRootWithoutMaxit(input);
             % Assert
-            testCase.assertThat(result, IsEqualTo(expectedRoot, 'Within', testCase.assertTolerance));
-            testCase.assertThat(iterations, IsGreaterThan(1));
+            this.assertThat(result, IsEqualTo(expectedRoot, 'Within', this.assertTolerance));
+            this.assertThat(iterations, IsGreaterThan(1));
         end
     end
 
     methods(Abstract, Access = protected)
-        findRootWithoutMaxit(testCase, input)
+        findRootWithoutMaxit(this, input)
     end
 end

@@ -11,50 +11,50 @@ classdef (Abstract) BaseRootEnumeratorTests < matlab.unittest.TestCase
     end
 
     methods (Abstract, Access = protected)
-        arrangeEnumerator(testCase, input);
+        arrangeEnumerator(this, input);
     end
 
     methods (Test, ParameterCombination = 'sequential')
-        function testNeverMoveNext(testCase, input, expectedInitialResult)
+        function testNeverMoveNext(this, input, expectedInitialResult)
             import matlab.unittest.constraints.IsEqualTo
 
             % Arrange
-            enumerator = testCase.arrangeEnumerator(input);
+            enumerator = this.arrangeEnumerator(input);
             % Act
             result = enumerator.getCurrent();
             iterations = enumerator.i;
             % Assert
-            testCase.assertThat(result, IsEqualTo(expectedInitialResult, 'Within', testCase.assertTolerance));
-            testCase.assertThat(iterations, IsEqualTo(0));
+            this.assertThat(result, IsEqualTo(expectedInitialResult, 'Within', this.assertTolerance));
+            this.assertThat(iterations, IsEqualTo(0));
         end
 
-        function testMoveNext(testCase, input, expectedResult)
+        function testMoveNext(this, input, expectedResult)
             import matlab.unittest.constraints.IsEqualTo
 
             % Arrange
-            enumerator = testCase.arrangeEnumerator(input);
+            enumerator = this.arrangeEnumerator(input);
             % Act
             enumerator.moveNext();
             result = enumerator.getCurrent();
             iterations = enumerator.i;
             % Assert
-            testCase.assertThat(result, IsEqualTo(expectedResult, 'Within', testCase.assertTolerance));
-            testCase.assertThat(iterations, IsEqualTo(1));
+            this.assertThat(result, IsEqualTo(expectedResult, 'Within', this.assertTolerance));
+            this.assertThat(iterations, IsEqualTo(1));
         end
 
-        function testGetNextTwoTimes(testCase, input, expectedSecondResult)
+        function testGetNextTwoTimes(this, input, expectedSecondResult)
             import matlab.unittest.constraints.IsEqualTo
 
             % Arrange
-            enumerator = testCase.arrangeEnumerator(input);
+            enumerator = this.arrangeEnumerator(input);
             % Act
             enumerator.moveNext();
             enumerator.moveNext();
             result = enumerator.getCurrent();
             iterations = enumerator.i;
             % Assert
-            testCase.assertThat(result, IsEqualTo(expectedSecondResult, 'Within', testCase.assertTolerance));
-            testCase.assertThat(iterations, IsEqualTo(2));
+            this.assertThat(result, IsEqualTo(expectedSecondResult, 'Within', this.assertTolerance));
+            this.assertThat(iterations, IsEqualTo(2));
         end
     end
 end

@@ -11,37 +11,37 @@ classdef BisectRootEnumeratorTests < tests.esercizio5.BaseRootEnumeratorTests
     end
 
     methods (Access = protected)
-        function enumerator = arrangeEnumerator(testCase, input)
-            enumerator = esercizio5.BisectRootEnumerator(testCase.f, input(1), input(2), 1e-3);
+        function enumerator = arrangeEnumerator(this, input)
+            enumerator = esercizio5.BisectRootEnumerator(this.f, input(1), input(2), 1e-3);
             enumerator.reset();
         end
     end
 
     methods (Test)
-        function testHasNextOnRegularInput(testCase)
+        function testHasNextOnRegularInput(this)
             % Arrange
             regularInput = [-0.1, 0.2];
-            enumerator = testCase.arrangeEnumerator(regularInput);
+            enumerator = this.arrangeEnumerator(regularInput);
             % Assert
-            testCase.assertTrue(enumerator.hasNext);
+            this.assertTrue(enumerator.hasNext);
         end
 
-        function testHasNextOnSmallInterval(testCase)
+        function testHasNextOnSmallInterval(this)
             % Arrange
             smallInput = [-1e-4, 2e-4];
-            enumerator = testCase.arrangeEnumerator(smallInput);
+            enumerator = this.arrangeEnumerator(smallInput);
             % Assert
-            testCase.assertFalse(enumerator.hasNext);
+            this.assertFalse(enumerator.hasNext);
         end
 
-        function testHasNextOnImmediateRoot(testCase)
+        function testHasNextOnImmediateRoot(this)
             % Arrange
             immediateRootInput = [-0.2, 0.2];
-            enumerator = testCase.arrangeEnumerator(immediateRootInput);
+            enumerator = this.arrangeEnumerator(immediateRootInput);
             % Act
             enumerator.moveNext();
             % Assert
-            testCase.assertFalse(enumerator.hasNext);
+            this.assertFalse(enumerator.hasNext);
         end
     end
 end
