@@ -33,3 +33,6 @@ octave-workspace
 # MacOS
 .DS_Store
 
+**/*.aux
+**/*.log
+**/*.gz
