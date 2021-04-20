@@ -36,3 +36,4 @@ octave-workspace
 **/*.aux
 **/*.log
 **/*.gz
+**/.DS_Store
