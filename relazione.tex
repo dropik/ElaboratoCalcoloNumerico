@@ -1,5 +1,7 @@
 \documentclass[12pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[document]{ragged2e}
 
 \title{Elaborato per il corso Calcolo Numerico}
 \author{Daniil Ryzkov}
@@ -8,5 +10,24 @@
 \begin{document}
 
 \maketitle
+\newpage
+
+\paragraph{Esercizio 1.} Sviluppando in serie di Taylor abbiamo che
+
+\[ f(x-h) \simeq f(x) - hf'(x) + \frac{h^2}{2}f''(x) - \frac{h^3}{6}f'''(x) \]
+\[ f(x-2h) \simeq f(x) - 2hf'(x) + 2h^2f''(x) - \frac{4h^3}{3}f'''(x) \]
+
+Che possiamo sostituire nell'espressione iniziale ed ottenere
+
+\[
+\begin{split}
+& \frac{3f(x) - 4\left[f(x) - hf'(x) + \frac{h^2}{2}f''(x) - \frac{h^3}{6}f'''(x)\right] + f(x) - 2hf'(x) + 2h^2f''(x) - \frac{4h^3}{3}f'''(x)}{2h} =  \\
+& = \frac{2hf'(x) - \frac{2h^3}{3}f'''(x)}{2h} = f'(x) - \frac{h^2}{3}f'''(x)
+\end{split}
+\]
+
+ovvero
+
+\[ \frac{3f(x) - 4f(x-h) + f(x-2h)}{2h} = f'(x) + O(h^2) \]
 
 \end{document}
