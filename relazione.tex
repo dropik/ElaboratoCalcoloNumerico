@@ -2,6 +2,19 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage[document]{ragged2e}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{background}{rgb}{0.97,0.97,0.97}
+\definecolor{frame}{rgb}{0.7,0.7,0.7}
+
+\lstdefinestyle{mStyle}{
+  backgroundcolor=\color{background},
+  frame=single,
+  rulecolor=\color{frame}
+}
+
+\lstset{style=mStyle}
 
 \title{Elaborato per il corso Calcolo Numerico}
 \author{Daniil Ryzkov}
@@ -29,5 +42,23 @@ Che possiamo sostituire nell'espressione iniziale ed ottenere
 ovvero
 
 \[ \frac{3f(x) - 4f(x-h) + f(x-2h)}{2h} = f'(x) + O(h^2) \]
+
+\paragraph{Esercizio 2.} Partiamo con valore iniziale pari ad $1$:
+
+\begin{lstlisting}[language=Matlab]
+e = 1;
+\end{lstlisting}
+
+Dopodiché eseguiamo un ciclo finché la somma $e+1$ non sia pari ad $1$, diminuendo il valore di $e$ a metà ad ogni passo.
+
+\begin{lstlisting}[language=Matlab]
+while e + 1 > 1
+  e = e / 2;
+end
+\end{lstlisting}
+
+Questo non è un ciclo infinito, siccome ad un certo punto il valore di $e$ diventerà così piccolo, che sommandolo con $1$ per l'errore di round-off si otterrà esattamente $1$, ed il ciclo si finirà.
+
+Il valore ottenuto dopo questa procedura è pari ad $1.110223e-16$, come si aspettava per lo standard IEEE754, in cui sono disponibili 53 bit per la mantissa. La variabile \verb|eps| di Matlab invece è pari al doppio di questa cifra, siccome la variabile \verb|eps| rappresenta piuttosto la distanza fra $1$ ed il prossimo valore più grande di $1$ rappresentabile con doppia precisione.
 
 \end{document}
