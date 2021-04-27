@@ -18,12 +18,13 @@ function x = newton(f, g, x0, tol, imax)
     for i = 1:imax
         fx = feval(f, x);
         gx = feval(g, x);
-        xPrev = x;
         x = x - fx / gx;
         
         % Exit criteria
-        if (abs(x - xPrev) <= tol * (1 + abs(xPrev)))
+        if (abs(x - x0) <= tol * (1 + abs(x0)))
             break
         end
+        
+        x0 = x;
     end
 end
