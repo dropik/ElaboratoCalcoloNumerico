@@ -29,7 +29,7 @@ function x = bisect(f, a, b, tol)
         x = (a + b) / 2;
         fx = feval(f, x);
         
-        % Trying to exit by F tolerance
+        % Exit criteria
         gx = (fb - fa) / (b - a);
         tolf = abs(gx) * tol;
         if (abs(fx) < tolf)
