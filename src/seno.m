@@ -1,4 +1,9 @@
 function y = seno(x)
+% SENO  Calculate sine.
+%
+%   Y = SENO(X) calculates sine for given X radians, using sine funciton
+%   approximation via Taylor series.
+
     y = x;
     term = x;
     sign = -1;

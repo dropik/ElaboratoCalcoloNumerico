@@ -36,6 +36,9 @@ octave-workspace
 **/*.aux
 **/*.log
 **/*.gz
+## Matlab
+*.m~
+
 ## macOS
 **/.DS_Store
 
