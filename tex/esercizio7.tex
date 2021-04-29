@@ -1,0 +1,51 @@
+\paragraph{Esercizio 7.} I risultati delle function degli esercizi 5-6 usati per determinare la radice della funzione $f(x) = x - cos(x)$ sono riportati nella figura \ref{fig:esercizio7}.
+
+\begin{figure}
+  \centering
+  \begin{tabular}{ |c|c|c|c| }
+    \hline
+    Tolleranza & Metodo & Risultato & Iterazioni \\
+    \hline\hline
+    
+    \multirow{4}{4em}{\[ 10^{-3} \]} & bisezione & $7.382812500000000e-01$ & 8 \\
+    \cline{2-4}
+    & newton & $7.390851333852840e-01$ & 4 \\
+    \cline{2-4}
+    & secanti & $7.390851121274639e-01$ & 4 \\
+    \cline{2-4}
+    & corde & $7.395672022122561e-01$ & 17 \\
+    \hline\hline
+    
+    \multirow{4}{4em}{\[ 10^{-6} \]} & bisezione & $7.390842437744141e-01$ & 19 \\
+    \cline{2-4}
+    & newton & $7.390851332151607e-01$ & 5 \\
+    \cline{2-4}
+    & secanti & $7.390851332150012e-01$ & 5 \\
+    \cline{2-4}
+    & corde & $7.390845495752126e-01$ & 34 \\
+    \hline\hline
+    
+    \multirow{4}{4em}{\[ 10^{-9} \]} & bisezione & $7.390851341187954e-01$ & 28 \\
+    \cline{2-4}
+    & newton & $7.390851332151607e-01$ & 5 \\
+    \cline{2-4}
+    & secanti & $7.390851332151607e-01$ & 6 \\
+    \cline{2-4}
+    & corde & $7.390851327392538e-01$ & 52 \\
+    \hline\hline
+    
+    \multirow{4}{4em}{\[ 10^{-12} \]} & bisezione & $7.390851332147577e-01$ & 39 \\
+    \cline{2-4}
+    & newton & $7.390851332151607e-01$ & 6 \\
+    \cline{2-4}
+    & secanti & $7.390851332151607e-01$ & 6 \\
+    \cline{2-4}
+    & corde & $7.390851332157368e-01$ & 69 \\
+    \hline
+  \end{tabular}
+
+  \caption{I risultati dell'esercizio 7.}
+  \label{fig:esercizio7}
+\end{figure}
+
+Per quanto riguarda il costo computazionale, il numero di operazioni floating point, considerando anche quelli necessari per il criterio di arresto, sono 7, 5, 8 e 5 per il metodo di bisezione, di Newton, delle secanti e delle corde rispettivamente, ad ogni passo di questi algoritmi. Tutti i metodi richiedono un'operazione di valutazione della funzione in ingresso, tranne il metodo di Newton, che richiede due operazioni. Ma siccome i metodi di Newton e quasi-Newton convergono più velocemente (almeno quadraticamente) rispetto al metodo di bisezione, in quanto la radice è semplice, il costo computazionale di questi metodi risulta più basso. Non è vero però in questo caso per il metodo delle corde, che converge molto lentamente, in quanto la sua convergenza dipende sia dal punto iniziale scelto, che dalla regolarità della funzione. Siccome la funzione in esame è abbastanza regolare, quindi il punto iniziale scelto si trova probabilmente troppo lontano dalla radice per sfruttare l'efficienza del metodo delle corde.

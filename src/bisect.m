@@ -42,10 +42,10 @@ function [x, i] = bisect(f, a, b, tol)
             break
         elseif (fa * fx < 0)
             b = x;
-            fb = feval(f, b);
+            fb = fx;
         else
             a = x;
-            fa = feval(f, a);
+            fa = fx;
         end
     end
 end
