@@ -9,6 +9,9 @@ function [x, i] = newton_mod(f, g, x0, m, tol, imax)
 %
 %   X = NEWTON_MOD(F, G, X0, M, TOL, IMAX) in addition uses IMAX as a limit
 %   for iterations number of the algorithm.
+%
+%   [X, I] = NEWTON_MOD(F, G, X0, M, TOL) returns the root X and the number
+%   of iterations I executed.
 
     if (nargin == 5)
         imax = 100;

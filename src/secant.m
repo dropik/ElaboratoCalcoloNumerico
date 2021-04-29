@@ -8,6 +8,9 @@ function [x, i] = secant(f, x0, x1, tol, imax)
 %
 %   X = SECANT(F, X0, X1, TOL, IMAX) in addition uses IMAX as a limit for
 %   iterations of the algorithm.
+%
+%   [X, I] = SECANT(F, X0, X1, TOL) returns the root X and the number of
+%   iterations I executed.
 
     if (nargin == 4)
         imax = 100;

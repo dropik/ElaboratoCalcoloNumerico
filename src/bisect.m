@@ -2,9 +2,12 @@ function [x, i] = bisect(f, a, b, tol)
 % BISECT  Find a point where given function evaluates to zero using
 % bisection method.
 %
-%   X = BISECT(F, A, B, TOL) using bisection method, finds a point where
+%   X = BISECT(F, A, B, TOL) using bisection method, returns a point where
 %   function F evaluates to zero on the given interval [A, B], within the
 %   relative tolerance TOL.
+%
+%   [X, I] = BISECT(F, A, B, TOL) returns the root X and number of
+%   iterations I executed.
 
     if (b < a)
         swap = b;

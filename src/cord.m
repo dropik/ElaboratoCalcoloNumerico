@@ -8,6 +8,9 @@ function [x, i] = cord(f, g, x0, tol, imax)
 %
 %   X = CORD(F, G, X0, TOL, IMAX) in addition sets the limit for iterations
 %   of the algorithm to IMAX.
+%
+%   [X, I] = CORD(F, G, X0, TOL) returns the root X and the number of
+%   iterations I executed.
 
     if (nargin == 4)
         imax = 100;
