@@ -1,4 +1,4 @@
-function x = newton(f, g, x0, tol, imax)
+function [x, i] = newton(f, g, x0, tol, imax)
 % NEWTON  Find a point at which given function evaluates to zero using
 % Newton's method.
 %

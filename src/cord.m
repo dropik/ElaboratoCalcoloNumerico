@@ -1,4 +1,4 @@
-function x = cord(f, g, x0, tol, imax)
+function [x, i] = cord(f, g, x0, tol, imax)
 % CORD  Find a point at which the given function evaluates to zero using
 % cord method.
 %

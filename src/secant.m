@@ -1,4 +1,4 @@
-function x = secant(f, x0, x1, tol, imax)
+function [x, i] = secant(f, x0, x1, tol, imax)
 % SECANT  Find a point at which the given function evaluates to zero using
 % secant method.
 %

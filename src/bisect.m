@@ -1,4 +1,4 @@
-function x = bisect(f, a, b, tol)
+function [x, i] = bisect(f, a, b, tol)
 % BISECT  Find a point where given function evaluates to zero using
 % bisection method.
 %
@@ -11,6 +11,8 @@ function x = bisect(f, a, b, tol)
         b = a;
         a = swap;
     end
+    
+    i = 1;
 
     fa = feval(f, a);
     if (fa == 0)
