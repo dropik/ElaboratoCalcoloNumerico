@@ -1,1 +1,42 @@
-\paragraph{Esercizio 8.} La molteplicità della radice $x = 1$ è pari a 3.
+\paragraph{Esercizio 8.} La molteplicità della radice $x = 1$ è pari a 3. I risultati sono riportati nella figura \ref{fig:esercizio8}.
+
+\begin{figure}
+  \centering
+  \begin{tabular}{ |c|c|c|c| }
+    \hline
+    Tolleranza & Metodo & Risultato & Iterazioni \\
+    \hline\hline
+    
+    \multirow{3}{4em}{\[ 10^{-3} \]} & Newton & $9.970180193681882e-01$ & 13 \\
+    \cline{2-4}
+    & Newton modificato & $1.000000919274803e+00$ & 4 \\
+    \cline{2-4}
+    & Aitken & $9.999999998746117e-01$ & 4 \\
+    \hline\hline
+    
+    \multirow{3}{4em}{\[ 10^{-6} \]} & Newton & $9.999969779166016e-01$ & 30 \\
+    \cline{2-4}
+    & Newton modificato & $1.000000000000282e+00$ & 5 \\
+    \cline{2-4}
+    & Aitken & $1$ & 5 \\
+    \hline\hline
+    
+    \multirow{3}{4em}{\[ 10^{-9} \]} & Newton & $9.999999969327132e-01$ & 47 \\
+    \cline{2-4}
+    & Newton modificato & $1$ & 6 \\
+    \cline{2-4}
+    & Aitken & $1$ & 5 \\
+    \hline\hline
+    
+    \multirow{3}{4em}{\[ 10^{-12} \]} & Newton & $9.999999999968868e-01$ & 64 \\
+    \cline{2-4}
+    & Newton modificato & $1$ & 6 \\
+    \cline{2-4}
+    & Aitken & $1$ & 6 \\
+    \hline
+  \end{tabular}
+  \caption{I risultati dell'esercizio 8.}
+  \label{fig:esercizio8}
+\end{figure}
+
+Come si può vedere nei risultati, il metodo di Newton converge lentamente in questo caso a causa di molteplicità della radice pari a 3, e quindi, invece di convergere quadraticamente, converge linearmente. Il metodo di Newton modificato ed il metodo con accelerazione di Aitken ripristinano la convergenza quadratica, come lo possiamo osservare dal numero di iterazioni di questi due metodi. In questo caso particolare però, sapendo la funzione in esame ed anche la molteplicità della radice $x = 1$, il metodo di Newton modificato risulta più vantaggioso, in quanto il metodo di Aitken esegue molto di più operazioni ad ogni passo, ma il numero totale di iterazioni è uguale a quello del metodo di Newton modificato.

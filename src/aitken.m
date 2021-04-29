@@ -17,9 +17,14 @@ function [x, i] = aitken(f, g, x0, tol, imax)
     end
 
     x = x0;
+    fx0 = feval(f, x0);
     
     for i = 1:imax
-        x1 = x0 - feval(f, x0) / feval(g, x0);
+        if (fx0 == 0)
+            break
+        end
+        
+        x1 = x0 - fx0 / feval(g, x0);
         x2 = x1 - feval(f, x1) / feval(g, x1);
         
         x = (x2*x0 - x1^2) / (x2 - 2*x1 + x0);
@@ -30,5 +35,6 @@ function [x, i] = aitken(f, g, x0, tol, imax)
         end
         
         x0 = x;
+        fx0 = feval(f, x0);
     end
 end
