@@ -1,0 +1,92 @@
+\paragraph{Esercizio 10.} Il codice della function \verb|mialu(lu, p, b)| è riportato nel file \emph{src/mialu.m}.
+
+Per quanto riguarda il testing, a parte dei unit test, che sono disponibili nel file \emph{test/mialu\_tests.m}, possiamo verificare la correttezza delle function scritte negli ultimi due esercizi, risolvendo un sistema generato casualmente. Generiamo la matrice \emph{A} ed il vettore degli ignoti \emph{x} usando la function \verb|rand| di Matlab. Motiplicando \emph{A} per \emph{x} otteniamo il termine noto \emph{b}. Usando la matrice \emph{A} ed il vettore \emph{b} generati, proviamo a risolvere questo sistema tramite le function, che abbiamo appena scritto, e confrontiamo il risultato con il vettore \emph{x} originale.
+
+\textbf{Esempio 1}
+\[
+A = \begin{pmatrix}
+0.9649 & 0.9572 & 0.1419\\
+0.1576 & 0.4854 & 0.4218\\
+0.9706 & 0.8003 & 0.9157
+\end{pmatrix}
+\]
+
+\[
+x = \begin{pmatrix}
+0.7922\\
+0.9595\\
+0.6557
+\end{pmatrix}
+\]
+
+e quindi
+
+\[
+b = \begin{pmatrix}
+1.7758\\
+0.8671\\
+2.1373
+\end{pmatrix}
+\]
+
+Il risultato ottenuto è
+
+\[
+\hat{x} = \begin{pmatrix}
+7.922073295595542e-01\\
+9.594924263929030e-01\\
+6.557406991565869e-01
+\end{pmatrix}
+\]
+
+\[
+E_{ass} = 1.1102e-16
+\]
+
+\textbf{Esempio 2}
+\[
+A = \begin{pmatrix}
+0.4456 & 0.6797 & 0.9597 & 0.2551 & 0.5472\\
+0.6463 & 0.6551 & 0.3404 & 0.5060 & 0.1386\\
+0.7094 & 0.1626 & 0.5853 & 0.6991 & 0.1493\\
+0.7547 & 0.1190 & 0.2238 & 0.8909 & 0.2575\\
+0.2760 & 0.4984 & 0.7513 & 0.9593 & 0.8407
+\end{pmatrix}
+\]
+
+\[
+x = \begin{pmatrix}
+0.2543\\
+0.8143\\
+0.2435\\
+0.9293\\
+0.3500
+\end{pmatrix}
+\]
+
+e quindi
+
+\[
+b = \begin{pmatrix}
+1.3291\\
+1.2994\\
+1.1572\\
+1.2613\\
+1.8446
+\end{pmatrix}
+\]
+
+Il risultato ottenuto è
+\[
+\hat{x} = \begin{pmatrix}
+2.542821789715319e-01\\
+8.142848260688160e-01\\
+2.435249687249892e-01\\
+9.292636231872273e-01\\
+3.499837659848094e-01
+\end{pmatrix}
+\]
+
+\[
+E_{ass} = 4.6629e-16
+\]
