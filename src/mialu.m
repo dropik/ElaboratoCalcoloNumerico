@@ -21,11 +21,9 @@ function x = mialu(lu, p, b)
         error('mialu:bSizeMismatch', 'Given b vector size is not matching LU size');
     end
     
-    y = zeros(n, 1);
     x = zeros(n, 1);
-    
     for i=1:n
-        y(i) = b(p(i)) - sum(y(1:i-1)' .* lu(i, 1:i-1));
+        x(i) = b(p(i)) - sum(x(1:i-1)' .* lu(i, 1:i-1));
     end
     
     for i=0:n-1
@@ -33,7 +31,7 @@ function x = mialu(lu, p, b)
             error('mialu:uIsSingular', 'Given U matrix is singular');
         end
         
-        x(n-i) = (y(n-i) - sum(x(n-i+1:n)' .* lu(n-i, n-i+1:n))) / ...
+        x(n-i) = (x(n-i) - sum(x(n-i+1:n)' .* lu(n-i, n-i+1:n))) / ...
                   lu(n-i, n-i);
     end
 end

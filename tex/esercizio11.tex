@@ -1,0 +1,126 @@
+\paragraph{Esercizio 11.} Il codice della function \verb|mialdl(a, b)| ed anche di tutte le sue function private sono riportati nella cartella \emph{src/@mialdl}.
+
+Per quanto riguarda il testing, a parte dei unit test, che sono disponibili nel file \emph{test/mialdl\_tests.m}, possiamo verificare la correttezza della function, risolvendo un sistema generato casualmente. Perciò occorre generare una matrice sdp $A$.
+
+La moltiplicazione di una matrice non singolare per la trasposta di questa matrice risulta in una matrice sdp. Cioè, sia $\hat{A}$ una matrice non singolare. La matrice definita come $A = \hat{A} \hat{A}^T$ è una matrice sdp.
+
+\textbf{Dim.}
+
+Dimostriamo prima che la matrice risultante è simmetrica. Siccome $A = \hat{A} \hat{A}^T$, allora abbiamo che
+\[
+a_{ij} = \sum_{k=1}^{n} \hat{a}_{ik} \hat{a}_{jk}
+\]
+\[
+a_{ji} = \sum_{k=1}^{n} \hat{a}_{jk} \hat{a}_{ik}
+\]
+
+perciò $a_{ij} = a_{ji}$, ossia $A = A^T$, cioè la matrice $A$ è simmetrica.
+
+Ora fissiamo un $x \in \mathbb{R}^n, x \neq 0$.
+\[
+x^T A x = x^T \hat{A} \hat{A}^T x = (x^T \hat{A}) (\hat{A}^T x)
+\]
+
+Siano $y = \hat{A}^T x$ e $\hat{y} = x^T \hat{A}$. Allora si ha che
+\[
+y_{i1} = \sum_{k=1}^{n} \hat{a}_{ki} x_{k1}
+\]
+
+\[
+\hat{y}_{1j} = \sum_{k=1}^{n} x_{k1} \hat{a}_{kj}
+\]
+
+Perciò $y_{i1} = \hat{y}_{1i}$, $i = 1 \dots n$, ossia $\hat{y} = y^T$ e allora
+\[
+y^T y = \sum_{i=1}^{n} y_{i1}^2 > 0
+\]
+
+Cioè $x^T A x > 0$, e quindi $A$ è una matrice sdp. Cvd.
+
+Sapendo questo possiamo generare una matrice ausiliaria usando la function \verb|rand| di Matlab. Moltiplicando questa matrice non singolare per la sua trasposta otteniamo la matrice $A$. In modo analogo all'esercizio precedente generiamo il vettore $b$. Si hanno quindi due esempi seguenti.
+
+\textbf{Esempio 1}
+\[
+A = \begin{pmatrix}
+0.5920 & 0.7038 & 0.3009\\
+0.7038 & 1.0201 & 0.7158\\
+0.3009 & 0.7158 & 0.9976
+\end{pmatrix}
+\]
+
+\[
+x = \begin{pmatrix}
+0.7513\\
+0.2551\\
+0.5060
+\end{pmatrix}
+\]
+
+e quindi
+
+\[
+b = \begin{pmatrix}
+0.7765\\
+1.1511\\
+0.9134
+\end{pmatrix}
+\]
+
+Il risultato ottenuto è
+
+\[
+\hat{x} = \begin{pmatrix}
+7.512670593056523e-01\\
+2.550951154592698e-01\\
+5.059570516651422e-01
+\end{pmatrix}
+\]
+
+\[
+E_{ass} = 4.8110e-16
+\]
+
+\textbf{Esempio 2}
+\[
+A = \begin{pmatrix}
+0.6951 & 0.9194 & 0.8561 & 0.9510\\
+0.9194 & 1.5177 & 1.1407 & 1.4908\\
+0.8561 & 1.1407 & 1.1089 & 1.1224\\
+0.9510 & 1.4908 & 1.1224 & 2.2493
+\end{pmatrix}
+\]
+
+\[
+x = \begin{pmatrix}
+0.4733\\
+0.3517\\
+0.8308\\
+0.5853
+\end{pmatrix}
+\]
+
+e quindi
+
+\[
+b = \begin{pmatrix}
+1.9201\\
+2.7891\\
+2.3846\\
+3.2233
+\end{pmatrix}
+\]
+
+Il risultato ottenuto è
+\[
+\hat{x} = \begin{pmatrix}
+4.732888489027274e-01\\
+3.516595070629998e-01\\
+8.308286278962896e-01\\
+5.852640911527238e-01
+
+\end{pmatrix}
+\]
+
+\[
+E_{ass} = 1.6515e-15
+\]
