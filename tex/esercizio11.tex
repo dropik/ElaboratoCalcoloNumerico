@@ -6,36 +6,28 @@ La moltiplicazione di una matrice non singolare per la trasposta di questa matri
 
 \textbf{Dim.}
 
-Dimostriamo prima che la matrice risultante è simmetrica. Siccome $A = \hat{A} \hat{A}^T$, allora abbiamo che
+Dimostriamo prima che la matrice risultante è simmetrica. Infatti,
 \[
-a_{ij} = \sum_{k=1}^{n} \hat{a}_{ik} \hat{a}_{jk}
-\]
-\[
-a_{ji} = \sum_{k=1}^{n} \hat{a}_{jk} \hat{a}_{ik}
+A^T = (\hat{A}\hat{A}^T)^T = (\hat{A}^T)^T\hat{A}^T = \hat{A}\hat{A}^T = A
 \]
 
-perciò $a_{ij} = a_{ji}$, ossia $A = A^T$, cioè la matrice $A$ è simmetrica.
+Allora $A = A^T$ e la matrice è simmetrica.
 
 Ora fissiamo un $x \in \mathbb{R}^n, x \neq 0$.
 \[
 x^T A x = x^T \hat{A} \hat{A}^T x = (x^T \hat{A}) (\hat{A}^T x)
 \]
 
-Siano $y = \hat{A}^T x$ e $\hat{y} = x^T \hat{A}$. Allora si ha che
+Sia $y = \hat{A}^T x$. Allora si ha che
 \[
-y_{i1} = \sum_{k=1}^{n} \hat{a}_{ki} x_{k1}
+y^T = (\hat{A}^Tx)^T = x^T(\hat{A}^T)^T = x^T\hat{A}
 \]
 
+che è la prima parte dell'espressione. Quindi abbiamo che
 \[
-\hat{y}_{1j} = \sum_{k=1}^{n} x_{k1} \hat{a}_{kj}
+x^TAx = y^T y = \sum_{i=1}^{n} y_{i}^2 > 0
 \]
-
-Perciò $y_{i1} = \hat{y}_{1i}$, $i = 1 \dots n$, ossia $\hat{y} = y^T$ e allora
-\[
-y^T y = \sum_{i=1}^{n} y_{i1}^2 > 0
-\]
-
-Cioè $x^T A x > 0$, e quindi $A$ è una matrice sdp. Cvd.
+Cvd.
 
 Sapendo questo possiamo generare una matrice ausiliaria usando la function \verb|rand| di Matlab. Moltiplicando questa matrice non singolare per la sua trasposta otteniamo la matrice $A$. In modo analogo all'esercizio precedente generiamo il vettore $b$. Si hanno quindi due esempi seguenti.
 
