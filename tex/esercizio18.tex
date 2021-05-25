@@ -1,0 +1,18 @@
+\paragraph{Esercizio 18.} Dimostriamo prima che vale il primo vincolo. Sappiamo già che $\Phi_{in}(x_j) = \delta_{ij}$ e $\Psi_{in}(x_j) = 0$. Allora possiamo valutare il polinomio nei punti $x_j$ come
+\[
+p(x_j) = \sum_{i = 0}^n f_i \delta_{ij}
+\]
+
+Siccome $\delta_{ij} = 1$ solo se $i = j$, allora $p(x_j) = f_j$. E così abbiamo dimostrato il primo vincolo.
+
+Per quanto riguarda il secondo vincolo, calcoliamo prima la derivata del polinomio.
+\[
+p'(x) = \sum_{i = 0}^n \big[f_i \Phi'_{in}(x) + f'_i \Psi'_{in}(x)\big]
+\]
+
+Siccome $\Phi'_{in}(x_j) = 0$ e $\Psi'_{in}(x_j) = \delta_{ij}$, allora possiamo scrivere che
+\[
+p'(x_j) = \sum_{i = 0}^n f'_i \delta_{ij}
+\]
+
+Ed in modo analogo al primo vincolo si ottiene che $p'(x_j) = f'_j$, che è il secondo vincolo. Cvd.
