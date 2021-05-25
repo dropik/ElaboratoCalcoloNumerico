@@ -1,0 +1,65 @@
+\paragraph{Esercizi 16-17.} 
+\begin{itemize}
+  \item $\Phi_{in}(x_j) = \delta_{ij}$:
+
+Supponiamo prima che $j = i$, allora
+\[
+\Phi_{in}(x_i) = L^2_{in}(x_i)\Big[1 - 2(x_i - x_i)L'_{in}(x_i)\Big] = 1^2\Big[1 - 2 \cdot 0 \cdot L'_{in}(x_i)\Big] = 1
+\]
+
+Se invece $j \neq i$, allora $L^2_{in}(x_j) = 0$ e quindi $\Phi_{in}(x_j) = 0$. In questo modo si ha che $\Phi_{in}(x_j) = \delta_{ij}$.
+
+  \item $\Phi'_{in}(x_j) = 0$:
+
+Calcoliamo prima $\Phi'_{in}(x)$
+\[
+\Phi'_{in}(x) = (L^2_{in}(x))'\Big[1 - 2(x - x_i)L'_{in}(x_i)\Big] + L^2_{in}(x)\Big[1 - 2(x - x_i)L'_{in}(x_i)\Big]'
+\]
+
+La derivata di $L^2_{in}(x)$ risulta $2L_{in}(x)L'_{in}(x)$. Poi, sapendo che $L'_{in}(x_i)$ è un valore costante, abbiamo
+\[
+[1 - 2(x - x_i)L'_{in}(x_i)]' = -2L'_{in}(x_i)
+\]
+
+Così possiamo scrivere
+\[
+\Phi'_{in}(x) = 2L_{in}(x)\Big\{L'_{in}(x)\big[1 - 2(x - x_i)L'_{in}(x_i)\big] - L_{in}(x)L'_{in}(x_i)\Big\}
+\]
+
+Se ora fissiamo $j = i$, allora abbiamo che
+\[
+\Phi'_{in}(x_i) = 2\Big\{L'_{in}(x_i)\big[1 - 2 \cdot 0 \cdot L'_{in}(x_i)\big] - L'_{in}(x_i)\Big\} = 2\Big\{L'_{in}(x_i) - L'_{in}(x_i)\Big\} = 0
+\]
+
+Se invece $i \neq j$, allora $L_{in}(x_j) = 0$ e quindi $\Phi'_{in}(x_j) = 0$.
+
+  \item $\Psi_{in}(x_j) = 0$:
+
+Se $j = i$, allora
+\[
+\Psi_{in}(x_i) = (x_i - x_i)L^2_{in}(x_i) = 0
+\]
+
+Se invece $j \neq i$, allora
+\[
+\Psi_{in}(x_j) = (x_j - x_i) \cdot 0 = 0
+\]
+
+  \item $\Psi'_{in}(x_j) = \delta_{ij}$:
+  
+Calcoliamo prima la derivata
+\begin{align*}
+\Psi'_{in}(x)& = L^2_{in}(x) + (x - x_i)(L^2_{in}(x))' \\
+  &= L^2_{in}(x) + 2(x - x_i)L_{in}(x)L'_{in}(x) \\
+  &= L_{in}(x)\Big[L_{in}(x) + 2(x - x_i)L'_{in}(x)\Big]
+\end{align*}
+
+Se $j = i$
+\[
+\Psi'_{in}(x_i) = 1 \cdot \Big[1 + 2 \cdot 0 \cdot L'_{in}(x_i)\Big] = 1
+\]
+
+Se invece $j \neq i$, allora $L_{in}(x_j) = 0$ e quindi $\Psi'_{in}(x_j) = 0$. Allora si ha che $\Psi'_{in}(x_j) = \delta_{ij}$.
+\end{itemize}
+
+Cvd.
