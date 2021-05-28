@@ -1,0 +1,68 @@
+\paragraph{Esercizi 23-24.} Come si può vedere nei risultati, l'approssimazione più precisa è stata quella tramite spline cubica naturale su 31 ascisse equidistanti. Si vede anche, che la scelta della base del polinomio interpolante non cambia il risultato di approssimazione, in quanto per l'unicità del polinomio hanno i coefficienti uguali.
+
+\begin{figure}
+  \centering
+  \begin{tabular}{|p{0.5\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|}
+    \hline
+    Metodo & Ascisse & $||f - g||$ \\
+    \hline\hline
+    
+    Polinomio interpolante in base di Lagrange & 31 ascisse equidistanti & $37.5900 \cdot 10^4$ \\
+    \hline
+    Polinomio interpolante in base di Newton & 31 ascisse equidistanti & $37.5900 \cdot 10^4$ \\
+    \hline
+    Polinomio interpolante in base di Lagrange & 31 ascisse di Chebyshev & $0.1027$ \\
+    \hline
+    Polinomio interpolante in base di Newton & 31 ascisse di Chebyshev & $0.1027$ \\
+    \hline
+    Polinomio di Hermite in base di Lagrange & 15 ascisse equidistanti & $1.1278 \cdot 10^3$ \\
+    \hline
+    Polinomio di Hermite in base di Newton & 15 ascisse equidistanti & $1.1278 \cdot 10^3$ \\
+    \hline
+    Polinomio di Hermite in base di Lagrange & 15 ascisse Chebyshev & $0.2482$ \\
+    \hline
+    Polinomio di Hermite in base di Newton & 15 ascisse Chebyshev & $0.2482$ \\
+    \hline
+    Spline cubica naturale & 31 ascisse equidistanti & $0.0196$ \\
+    \hline
+    Spline cubica not-a-knot & 31 ascisse equidistanti & $0.0216$ \\
+    \hline
+  \end{tabular}
+  \caption{I risultati dell'approssimazione tramite interpolazione polinomiale e spline della funzione di Runge $f(x) = \frac{1}{1 + x^2}$.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{int_pol_equidist}
+  \caption{Polinomio interpolante su 31 ascisse equidistanti.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{int_pol_chebyshev}
+  \caption{Polinomio interpolante su 31 ascisse di Chebyshev.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{int_hermite_equidist}
+  \caption{Polinomio interpolante di Hermite su 15 ascisse equidistanti.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{int_hermite_chebyshev}
+  \caption{Polinomio interpolante di Hermite su 15 ascisse di Chebyshev.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{spline_cub}
+  \caption{Spline cubica naturale su 31 ascisse equidistanti.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{spline_nak}
+  \caption{Spline cubica not-a-knot su 31 ascisse equidistanti.}
+\end{figure}
