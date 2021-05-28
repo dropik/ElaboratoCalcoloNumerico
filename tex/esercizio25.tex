@@ -1,0 +1,64 @@
+\paragraph{Esercizio 25.} I risultati dell'approssimazione tramite spline cubica naturale e not-a-knot delle funzioni $sin(x)$ e $cos(x)$ sono riportati nelle figure \ref{fig:approxSin} e \ref{fig:approxCos} rispettivamente.
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{nat_vs_nak_sin}
+  \begin{tabular}{|c|c|c|}
+    \hline
+    n & Spline naturale & Spline not-a-knot \\
+    \hline\hline
+    10 & $27.2030 \cdot 10^{-3}$ & $0.9788$ \\
+    \hline
+    20 & $1.7148 \cdot 10^{-3}$ & $0.4812$ \\
+    \hline
+    30 & $0.3588 \cdot 10^{-3}$ & $0.2782$ \\
+    \hline
+    40 & $0.1210 \cdot 10^{-3}$ & $0.1845$ \\
+    \hline
+    50 & $52.6930 \cdot 10^{-6}$ & $0.1333$ \\
+    \hline
+    60 & $26.8860 \cdot 10^{-6}$ & $0.1019$ \\
+    \hline
+    70 & $15.2820 \cdot 10^{-6}$ & $81.1890 \cdot 10^{-3}$ \\
+    \hline
+    80 & $9.3933 \cdot 10^{-6}$ & $66.5890 \cdot 10^{-3}$ \\
+    \hline
+    90 & $6.1259 \cdot 10^{-6}$ & $55.8840 \cdot 10^{-3}$ \\
+    \hline
+    100 & $4.1848 \cdot 10^{-6}$ & $47.7630 \cdot 10^{-3}$ \\
+    \hline
+  \end{tabular}
+  \caption{Risultati dell'approssimazione della funzione $sin(x)$ tramite spline cubica naturale e not-a-knot.}
+  \label{fig:approxSin}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{nat_vs_nak_cos}
+  \begin{tabular}{|c|c|c|}
+    \hline
+    n & Spline naturale & Spline not-a-knot \\
+    \hline\hline
+    10 & $0.6544$ & $1.1310$ \\
+    \hline
+    20 & $0.1114$ & $0.2352$ \\
+    \hline
+    30 & $40.1800 \cdot 10^{-3}$ & $88.0890 \cdot 10^{-3}$ \\
+    \hline
+    40 & $19.5270 \cdot 10^{-3}$ & $43.3860 \cdot 10^{-3}$ \\
+    \hline
+    50 & $11.1660 \cdot 10^{-3}$ & $24.9630 \cdot 10^{-3}$ \\
+    \hline
+    60 & $7.0742 \cdot 10^{-3}$ & $15.8690 \cdot 10^{-3}$ \\
+    \hline
+    70 & $4.8101 \cdot 10^{-3}$ & $10.8120 \cdot 10^{-3}$ \\
+    \hline
+    80 & $3.4441 \cdot 10^{-3}$ & $7.7517 \cdot 10^{-3}$ \\
+    \hline
+    90 & $2.5652 \cdot 10^{-3}$ & $5.7788 \cdot 10^{-3}$ \\
+    \hline
+    100 & $1.9710 \cdot 10^{-3}$ & $4.4430 \cdot 10^{-3}$ \\
+    \hline
+  \end{tabular}
+  \caption{Risultati dell'approssimazione della funzione $cos(x)$ tramite spline cubica naturale e not-a-knot.}
+  \label{fig:approxCos}
+\end{figure}
